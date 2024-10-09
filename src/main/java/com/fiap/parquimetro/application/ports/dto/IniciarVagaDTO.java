@@ -1,21 +1,20 @@
 package com.fiap.parquimetro.application.ports.dto;
 
+import com.fiap.parquimetro.application.controller.dto.ParquimetroOutput;
 import com.fiap.parquimetro.application.controller.dto.VagaOutput;
 import com.fiap.parquimetro.domain.Parquimetro;
 import com.fiap.parquimetro.domain.Vaga;
-import com.fiap.parquimetro.infrastructure.entities.ParquimetroEntity;
 import java.time.Instant;
 import lombok.Builder;
 
 @Builder
-public record IniciarVagaDTO(Long id, Instant dataHoraInicio, String placa, Long parquimetro, Double parquimetroValorHora) {
+public record IniciarVagaDTO(Long id, Instant dataHoraInicio, String placa, Long parquimetro, Double parquimetroValorHora, String parquimetroNome) {
   public VagaOutput toOutput() {
     return VagaOutput.builder()
         .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
         .placa(this.placa)
-        .parquimetro(ParquimetroEntity.builder().id(this.parquimetro).build())
-        .parquimetro(ParquimetroEntity.builder().valorHora(this.parquimetroValorHora).build())
+        .parquimetro(ParquimetroOutput.builder().id(this.parquimetro).valorHora(this.parquimetroValorHora).nome(this.parquimetroNome).build())
         .build();
   }
 

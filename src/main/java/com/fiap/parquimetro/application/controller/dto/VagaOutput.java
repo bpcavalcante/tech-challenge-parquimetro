@@ -9,4 +9,4 @@ public record VagaOutput(
     Long id,
     Instant dataHoraInicio,
     String placa,
-    ParquimetroEntity parquimetro) {}
+    ParquimetroOutput parquimetro) {}

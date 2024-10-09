@@ -43,6 +43,7 @@ public class VagaEntity {
         .placa(this.placa)
         .parquimetroId(this.parquimetro.getId())
         .parquimetroValorHora(this.parquimetro.getValorHora())
+        .parquimetroNome(this.parquimetro.getNome())
         .build();
   }
 }

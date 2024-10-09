@@ -15,6 +15,7 @@ public class VagaDatabaseDTO {
   private String placa;
   private Long parquimetroId;
   private Double parquimetroValorHora;
+  private String parquimetroNome;
 
   public IniciarVagaDTO toIniciarVagaDTO() {
     return IniciarVagaDTO.builder()
@@ -23,6 +24,7 @@ public class VagaDatabaseDTO {
         .placa(this.placa)
         .parquimetro(this.parquimetroId)
         .parquimetroValorHora(this.parquimetroValorHora)
+        .parquimetroNome(this.parquimetroNome)
         .build();
   }
 }
