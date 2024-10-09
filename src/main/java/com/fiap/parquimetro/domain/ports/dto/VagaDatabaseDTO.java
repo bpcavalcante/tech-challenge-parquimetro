@@ -14,6 +14,7 @@ public class VagaDatabaseDTO {
   private Instant dataHoraInicio;
   private String placa;
   private Long parquimetroId;
+  private Double parquimetroValorHora;
 
   public IniciarVagaDTO toIniciarVagaDTO() {
     return IniciarVagaDTO.builder()
@@ -21,6 +22,7 @@ public class VagaDatabaseDTO {
         .dataHoraInicio(this.dataHoraInicio)
         .placa(this.placa)
         .parquimetro(this.parquimetroId)
+        .parquimetroValorHora(this.parquimetroValorHora)
         .build();
   }
 }

@@ -8,13 +8,14 @@ import java.time.Instant;
 import lombok.Builder;
 
 @Builder
-public record IniciarVagaDTO(Long id, Instant dataHoraInicio, String placa, Long parquimetro) {
+public record IniciarVagaDTO(Long id, Instant dataHoraInicio, String placa, Long parquimetro, Double parquimetroValorHora) {
   public VagaOutput toOutput() {
     return VagaOutput.builder()
         .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
         .placa(this.placa)
         .parquimetro(ParquimetroEntity.builder().id(this.parquimetro).build())
+        .parquimetro(ParquimetroEntity.builder().valorHora(this.parquimetroValorHora).build())
         .build();
   }
 
