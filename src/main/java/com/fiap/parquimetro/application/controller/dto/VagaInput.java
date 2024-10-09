@@ -1,5 +1,6 @@
 package com.fiap.parquimetro.application.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fiap.parquimetro.application.ports.dto.IniciarVagaDTO;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;

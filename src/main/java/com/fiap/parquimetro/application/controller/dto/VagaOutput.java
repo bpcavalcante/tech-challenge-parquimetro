@@ -1,5 +1,6 @@
 package com.fiap.parquimetro.application.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fiap.parquimetro.infrastructure.entities.ParquimetroEntity;
 import java.time.Instant;
 import lombok.Builder;

@@ -16,6 +16,10 @@ public class VagaDatabaseDTO {
   private Long parquimetroId;
   private Double parquimetroValorHora;
   private String parquimetroNome;
+  private Long enderecoId;
+  private String enderecoNumero;
+  private String enderecoCep;
+  private String enderecoComplemento;
 
   public IniciarVagaDTO toIniciarVagaDTO() {
     return IniciarVagaDTO.builder()
@@ -25,6 +29,10 @@ public class VagaDatabaseDTO {
         .parquimetro(this.parquimetroId)
         .parquimetroValorHora(this.parquimetroValorHora)
         .parquimetroNome(this.parquimetroNome)
+        .enderecoNumero(this.enderecoNumero)
+        .enderecoCep(this.enderecoCep)
+        .enderecoId(this.enderecoId)
+        .enderecoComplemento(this.enderecoComplemento)
         .build();
   }
 }

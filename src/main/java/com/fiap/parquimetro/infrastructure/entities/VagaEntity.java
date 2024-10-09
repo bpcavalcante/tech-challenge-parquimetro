@@ -44,6 +44,10 @@ public class VagaEntity {
         .parquimetroId(this.parquimetro.getId())
         .parquimetroValorHora(this.parquimetro.getValorHora())
         .parquimetroNome(this.parquimetro.getNome())
+        .enderecoNumero(this.parquimetro.getEndereco().getNumero())
+        .enderecoCep(this.parquimetro.getEndereco().getCep())
+        .enderecoId(this.parquimetro.getEndereco().getId())
+        .enderecoComplemento(this.parquimetro.getEndereco().getComplemento())
         .build();
   }
 }
