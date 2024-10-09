@@ -7,6 +7,7 @@ import com.fiap.parquimetro.infrastructure.VagaJpaRepository;
 import com.fiap.parquimetro.infrastructure.entities.ParquimetroEntity;
 import com.fiap.parquimetro.infrastructure.entities.VagaEntity;
 import jakarta.transaction.Transactional;
+import java.time.Instant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataAccessException;
 
@@ -23,7 +24,7 @@ public class VagaSqlRepositoryImpl implements VagaRepositoryPort {
             .findById(vagaDatabaseDTO.getParquimetroId())
             .orElseThrow(() -> new RuntimeException("Parquimetro não encontrado"));
 
-    VagaEntity newVaga = VagaEntity.builder().placa(vagaDatabaseDTO.getPlaca()).parquimetro(parquimetro).build();
+    VagaEntity newVaga = VagaEntity.builder().id(vagaDatabaseDTO.getId()).placa(vagaDatabaseDTO.getPlaca()).dataHoraInicio(Instant.now()).parquimetro(parquimetro).build();
 
     try {
       return vagaRepository.save(newVaga).toDatabaseDTO();

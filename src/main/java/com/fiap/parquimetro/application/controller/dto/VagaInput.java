@@ -8,15 +8,8 @@ import org.springframework.format.annotation.NumberFormat;
 import java.time.Instant;
 
 @Builder
-public record VagaInput(
-    Instant dataHoraInicio,
-    @NotBlank String placa,
-    Long parquimetroId) {
+public record VagaInput(@NotBlank String placa, Long parquimetroId) {
   public IniciarVagaDTO toDto() {
-    return IniciarVagaDTO.builder()
-        .dataHoraInicio(this.dataHoraInicio)
-        .placa(this.placa)
-        .parquimetro(this.parquimetroId)
-        .build();
+    return IniciarVagaDTO.builder().placa(this.placa).parquimetro(this.parquimetroId).build();
   }
 }

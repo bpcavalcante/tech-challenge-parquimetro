@@ -1,8 +1,6 @@
 package com.fiap.parquimetro.domain.ports.dto;
 
 import com.fiap.parquimetro.application.ports.dto.IniciarVagaDTO;
-import com.fiap.parquimetro.domain.Pagamento;
-import com.fiap.parquimetro.domain.Parquimetro;
 import java.time.Instant;
 import lombok.Builder;
 import lombok.Getter;

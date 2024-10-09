@@ -1,12 +1,7 @@
 package com.fiap.parquimetro.domain;
 
-import com.fiap.parquimetro.infrastructure.entities.EnderecoEntity;
-import com.fiap.parquimetro.infrastructure.entities.VagaEntity;
-import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.util.List;
+import com.fiap.parquimetro.domain.ports.dto.ParquimetroDatabaseDTO;
 import lombok.*;
-
 
 @Builder
 @AllArgsConstructor
@@ -15,9 +10,19 @@ import lombok.*;
 @Setter
 public class Parquimetro {
 
+  private Long id;
+  private Double valorHora;
+  private String nome;
+  private Endereco endereco;
 
-    private Long id;
-    private BigDecimal valorHora;
-    private EnderecoEntity endereco;
-
+  public ParquimetroDatabaseDTO toDTO() {
+    return ParquimetroDatabaseDTO.builder()
+        .id(this.id)
+        .nome(this.nome)
+        .valorHora(this.valorHora)
+        .cep(this.endereco.getCep())
+        .complemento(this.endereco.getComplemento())
+        .numero(this.endereco.getNumero())
+        .build();
+  }
 }

@@ -11,6 +11,7 @@ import lombok.Builder;
 public record IniciarVagaDTO(Long id, Instant dataHoraInicio, String placa, Long parquimetro) {
   public VagaOutput toOutput() {
     return VagaOutput.builder()
+        .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
         .placa(this.placa)
         .parquimetro(ParquimetroEntity.builder().id(this.parquimetro).build())

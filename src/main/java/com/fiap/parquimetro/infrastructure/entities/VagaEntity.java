@@ -20,7 +20,6 @@ public class VagaEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private Instant dataHoraInicio;
   private Instant dataHoraFim;
   private Double tempoPermanencia;
