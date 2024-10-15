@@ -1,10 +1,6 @@
 package com.fiap.parquimetro.domain;
 
-import com.fiap.parquimetro.application.ports.dto.IniciarVagaDTO;
 import com.fiap.parquimetro.domain.ports.dto.VagaDatabaseDTO;
-import com.fiap.parquimetro.infrastructure.entities.PagamentoEntity;
-import com.fiap.parquimetro.infrastructure.entities.ParquimetroEntity;
-import jakarta.persistence.*;
 import java.time.Instant;
 import lombok.*;
 
@@ -22,6 +18,7 @@ public class Vaga {
   private String placa;
   private Parquimetro parquimetro;
   private Pagamento pagamento;
+  private boolean isPresentCarro;
 
   public VagaDatabaseDTO toDTO() {
     return VagaDatabaseDTO.builder()
@@ -29,6 +26,7 @@ public class Vaga {
         .dataHoraInicio(this.dataHoraInicio)
         .placa(this.placa)
         .parquimetroId(this.parquimetro.getId())
+        .isPresentCarro(this.isPresentCarro)
         .build();
   }
 }

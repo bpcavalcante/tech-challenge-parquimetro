@@ -1,6 +1,6 @@
 package com.fiap.parquimetro.infrastructure.implementations;
 
-import com.fiap.parquimetro.domain.ParquimetroRepositoryPort;
+import com.fiap.parquimetro.domain.ports.ParquimetroRepositoryPort;
 import com.fiap.parquimetro.domain.ports.dto.ParquimetroDatabaseDTO;
 import com.fiap.parquimetro.infrastructure.ParquimetroJpaRepository;
 import com.fiap.parquimetro.infrastructure.entities.EnderecoEntity;

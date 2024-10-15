@@ -1,15 +1,15 @@
 package com.fiap.parquimetro.application.ports.dto;
 
-import com.fiap.parquimetro.application.controller.dto.EnderecoOutput;
-import com.fiap.parquimetro.application.controller.dto.ParquimetroOutput;
-import com.fiap.parquimetro.application.controller.dto.VagaOutput;
+import com.fiap.parquimetro.application.controller.dto.output.EnderecoOutput;
+import com.fiap.parquimetro.application.controller.dto.output.ParquimetroOutput;
+import com.fiap.parquimetro.application.controller.dto.output.VagaOutput;
 import com.fiap.parquimetro.domain.Parquimetro;
 import com.fiap.parquimetro.domain.Vaga;
 import java.time.Instant;
 import lombok.Builder;
 
 @Builder
-public record IniciarVagaDTO(
+public record VagaDTO(
     Long id,
     Instant dataHoraInicio,
     String placa,
@@ -19,7 +19,10 @@ public record IniciarVagaDTO(
     Long enderecoId,
     String enderecoNumero,
     String enderecoCep,
-    String enderecoComplemento) {
+    String enderecoComplemento,
+    boolean isPresentCarro,
+    String metodoPagamento) {
+
   public VagaOutput toOutput() {
     return VagaOutput.builder()
         .id(this.id)
@@ -38,6 +41,7 @@ public record IniciarVagaDTO(
                         .complemento(this.enderecoComplemento)
                         .build())
                 .build())
+        .isPresentCarro(this.isPresentCarro)
         .build();
   }
 

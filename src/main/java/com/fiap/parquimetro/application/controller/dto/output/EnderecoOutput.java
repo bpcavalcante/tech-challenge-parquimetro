@@ -1,4 +1,4 @@
-package com.fiap.parquimetro.application.controller.dto;
+package com.fiap.parquimetro.application.controller.dto.output;
 
 import lombok.Builder;
 

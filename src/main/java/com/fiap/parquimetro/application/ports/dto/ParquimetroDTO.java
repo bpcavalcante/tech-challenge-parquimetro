@@ -1,7 +1,7 @@
 package com.fiap.parquimetro.application.ports.dto;
 
-import com.fiap.parquimetro.application.controller.dto.EnderecoOutput;
-import com.fiap.parquimetro.application.controller.dto.ParquimetroOutput;
+import com.fiap.parquimetro.application.controller.dto.output.EnderecoOutput;
+import com.fiap.parquimetro.application.controller.dto.output.ParquimetroOutput;
 import com.fiap.parquimetro.domain.Endereco;
 import com.fiap.parquimetro.domain.Parquimetro;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.fiap.parquimetro.application.controller.dto;
+package com.fiap.parquimetro.application.controller.dto.input;
 
 import com.fiap.parquimetro.application.ports.dto.ParquimetroDTO;
 import jakarta.validation.constraints.NotBlank;

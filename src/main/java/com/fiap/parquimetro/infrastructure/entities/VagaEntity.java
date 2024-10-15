@@ -1,6 +1,6 @@
 package com.fiap.parquimetro.infrastructure.entities;
 
-import com.fiap.parquimetro.application.ports.dto.IniciarVagaDTO;
+import com.fiap.parquimetro.application.ports.dto.VagaDTO;
 import com.fiap.parquimetro.domain.ports.dto.VagaDatabaseDTO;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,11 +24,12 @@ public class VagaEntity {
   private Instant dataHoraFim;
   private Double tempoPermanencia;
   private String placa;
+  private boolean isPresentCarro;
   @ManyToOne private ParquimetroEntity parquimetro;
   @OneToOne private PagamentoEntity pagamento;
 
-  public IniciarVagaDTO toDTO() {
-    return IniciarVagaDTO.builder()
+  public VagaDTO toDTO() {
+    return VagaDTO.builder()
         .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
         .placa(this.placa)
@@ -48,6 +49,7 @@ public class VagaEntity {
         .enderecoCep(this.parquimetro.getEndereco().getCep())
         .enderecoId(this.parquimetro.getEndereco().getId())
         .enderecoComplemento(this.parquimetro.getEndereco().getComplemento())
+        .isPresentCarro(this.isPresentCarro)
         .build();
   }
 }

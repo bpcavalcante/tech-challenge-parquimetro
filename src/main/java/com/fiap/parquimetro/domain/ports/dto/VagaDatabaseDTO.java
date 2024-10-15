@@ -1,6 +1,7 @@
 package com.fiap.parquimetro.domain.ports.dto;
 
-import com.fiap.parquimetro.application.ports.dto.IniciarVagaDTO;
+import com.fiap.parquimetro.application.ports.dto.VagaDTO;
+import java.math.BigDecimal;
 import java.time.Instant;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,9 +21,13 @@ public class VagaDatabaseDTO {
   private String enderecoNumero;
   private String enderecoCep;
   private String enderecoComplemento;
+  private boolean isPresentCarro;
+  private Long idPagamento;
+  private String metodoPagamento;
+  private BigDecimal valorPagamento;
 
-  public IniciarVagaDTO toIniciarVagaDTO() {
-    return IniciarVagaDTO.builder()
+  public VagaDTO toIniciarVagaDTO() {
+    return VagaDTO.builder()
         .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
         .placa(this.placa)
@@ -33,6 +38,7 @@ public class VagaDatabaseDTO {
         .enderecoCep(this.enderecoCep)
         .enderecoId(this.enderecoId)
         .enderecoComplemento(this.enderecoComplemento)
+        .isPresentCarro(this.isPresentCarro)
         .build();
   }
 }

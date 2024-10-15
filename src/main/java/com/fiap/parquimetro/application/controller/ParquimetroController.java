@@ -1,7 +1,7 @@
 package com.fiap.parquimetro.application.controller;
 
-import com.fiap.parquimetro.application.controller.dto.ParquimetroInput;
-import com.fiap.parquimetro.application.controller.dto.ParquimetroOutput;
+import com.fiap.parquimetro.application.controller.dto.input.ParquimetroInput;
+import com.fiap.parquimetro.application.controller.dto.output.ParquimetroOutput;
 import com.fiap.parquimetro.application.ports.CreateParquimetroVagaUseCasePorts;
 import com.fiap.parquimetro.application.ports.dto.ParquimetroDTO;
 import jakarta.validation.Valid;

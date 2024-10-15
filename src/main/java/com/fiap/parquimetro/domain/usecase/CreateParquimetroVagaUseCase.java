@@ -3,7 +3,7 @@ package com.fiap.parquimetro.domain.usecase;
 import com.fiap.parquimetro.application.ports.CreateParquimetroVagaUseCasePorts;
 import com.fiap.parquimetro.application.ports.dto.ParquimetroDTO;
 import com.fiap.parquimetro.domain.Parquimetro;
-import com.fiap.parquimetro.domain.ParquimetroRepositoryPort;
+import com.fiap.parquimetro.domain.ports.ParquimetroRepositoryPort;
 import com.fiap.parquimetro.domain.ports.dto.ParquimetroDatabaseDTO;
 import lombok.RequiredArgsConstructor;
 
