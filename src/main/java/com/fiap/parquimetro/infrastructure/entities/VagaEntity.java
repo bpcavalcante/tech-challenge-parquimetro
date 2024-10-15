@@ -26,7 +26,7 @@ public class VagaEntity {
   private String placa;
   private boolean isPresentCarro;
   @ManyToOne private ParquimetroEntity parquimetro;
-  @OneToOne private PagamentoEntity pagamento;
+  @OneToOne(cascade = CascadeType.PERSIST) private PagamentoEntity pagamento;
 
   public VagaDTO toDTO() {
     return VagaDTO.builder()

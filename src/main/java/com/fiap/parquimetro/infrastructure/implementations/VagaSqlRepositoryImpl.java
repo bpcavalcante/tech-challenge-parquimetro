@@ -43,10 +43,10 @@ public class VagaSqlRepositoryImpl implements VagaRepositoryPort {
   }
 
   @Override
-  @Transactional
+  @Transactional(Transactional.TxType.REQUIRED)
   public VagaDatabaseDTO close(VagaDatabaseDTO vagaDatabaseDTO) {
-     VagaEntity vaga = vagaRepository.findByParquimetroIdAndPlacaAndIsPresentCarro(vagaDatabaseDTO.getParquimetroId(), vagaDatabaseDTO.getPlaca(),
-         vagaDatabaseDTO.isPresentCarro());
+     VagaEntity vaga = vagaRepository.findByParquimetroIdAndPlacaAndIsPresentCarroTrue(vagaDatabaseDTO.getParquimetroId(), vagaDatabaseDTO.getPlaca())
+         .orElseThrow(() -> new RuntimeException("Vaga não encontrada"));
 
     PagamentoEntity newPagamento =
         PagamentoEntity.builder()
@@ -56,7 +56,7 @@ public class VagaSqlRepositoryImpl implements VagaRepositoryPort {
             .build();
 
      vaga.setDataHoraFim(Instant.now());
-//     vaga.setTempoPermanencia((double) Duration.between(vaga.getDataHoraInicio(), vaga.getDataHoraFim()).toHours());
+     vaga.setTempoPermanencia((double) Duration.between(vaga.getDataHoraInicio(), vaga.getDataHoraFim()).toHours());
      vaga.setPagamento(newPagamento);
      vaga.setPresentCarro(false);
 
