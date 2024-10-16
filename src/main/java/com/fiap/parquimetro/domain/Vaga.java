@@ -1,6 +1,7 @@
 package com.fiap.parquimetro.domain;
 
 import com.fiap.parquimetro.domain.ports.dto.VagaDatabaseDTO;
+import java.math.BigDecimal;
 import java.time.Instant;
 import lombok.*;
 
@@ -24,9 +25,19 @@ public class Vaga {
     return VagaDatabaseDTO.builder()
         .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
+        .dataHoraFim(this.dataHoraFim)
+        .horasPermanencia(this.tempoPermanencia)
         .placa(this.placa)
-        .parquimetroId(this.parquimetro.getId())
+        .parquimetroId(this.parquimetro != null ? this.parquimetro.getId() : null)
         .isPresentCarro(this.isPresentCarro)
+        .metodoPagamento(
+            this.pagamento != null && !this.pagamento.getMetodoPagamento().isBlank()
+                ? this.pagamento.getMetodoPagamento()
+                : "")
+        .valorPagamento(
+            this.pagamento != null && this.pagamento.getValor() != null
+                ? this.pagamento.getValor()
+                : BigDecimal.ZERO)
         .build();
   }
 }

@@ -18,6 +18,15 @@ public class VagaSqlRepositoryImpl implements VagaRepositoryPort {
   private final VagaJpaRepository vagaRepository;
   private final ParquimetroJpaRepository parquimetroRepository;
 
+
+  @Override
+  public VagaDatabaseDTO findByParquimetroIdAndPlacaAndIsPresentCarroTrue(VagaDatabaseDTO vagaDatabaseDTO) {
+    VagaEntity vaga = vagaRepository.findByParquimetroIdAndPlacaAndIsPresentCarroTrue(vagaDatabaseDTO.getParquimetroId(), vagaDatabaseDTO.getPlaca())
+        .orElseThrow(() -> new RuntimeException("Vaga não encontrada"));
+
+    return vaga.toDatabaseDTO();
+  }
+
   @Override
   @Transactional
   public VagaDatabaseDTO create(VagaDatabaseDTO vagaDatabaseDTO) {
@@ -55,8 +64,8 @@ public class VagaSqlRepositoryImpl implements VagaRepositoryPort {
             .vaga(vaga)
             .build();
 
-     vaga.setDataHoraFim(Instant.now());
-     vaga.setTempoPermanencia((double) Duration.between(vaga.getDataHoraInicio(), vaga.getDataHoraFim()).toHours());
+     vaga.setDataHoraFim(vagaDatabaseDTO.getDataHoraFim());
+     vaga.setTempoPermanencia(vagaDatabaseDTO.getHorasPermanencia());
      vaga.setPagamento(newPagamento);
      vaga.setPresentCarro(false);
 

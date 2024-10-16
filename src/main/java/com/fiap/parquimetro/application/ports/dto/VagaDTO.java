@@ -12,6 +12,8 @@ import lombok.Builder;
 public record VagaDTO(
     Long id,
     Instant dataHoraInicio,
+    Instant dataHoraFim,
+    Double horasPermanencia,
     String placa,
     Long parquimetro,
     Double parquimetroValorHora,
@@ -27,6 +29,8 @@ public record VagaDTO(
     return VagaOutput.builder()
         .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
+        .dataHoraFim(this.dataHoraFim)
+        .horasPermanencia(this.horasPermanencia)
         .placa(this.placa)
         .parquimetro(
             ParquimetroOutput.builder()
@@ -49,7 +53,12 @@ public record VagaDTO(
     return Vaga.builder()
         .dataHoraInicio(this.dataHoraInicio)
         .placa(this.placa)
-        .parquimetro(Parquimetro.builder().id(this.parquimetro).build())
+        .parquimetro(
+            Parquimetro.builder()
+                .id(this.parquimetro)
+                .valorHora(this.parquimetroValorHora)
+                .nome(this.parquimetroNome)
+                .build())
         .build();
   }
 }

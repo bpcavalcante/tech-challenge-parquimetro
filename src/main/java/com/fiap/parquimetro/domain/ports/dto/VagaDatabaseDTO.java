@@ -13,6 +13,8 @@ import lombok.Setter;
 public class VagaDatabaseDTO {
   private Long id;
   private Instant dataHoraInicio;
+  private Instant dataHoraFim;
+  private Double horasPermanencia;
   private String placa;
   private Long parquimetroId;
   private Double parquimetroValorHora;
@@ -30,6 +32,8 @@ public class VagaDatabaseDTO {
     return VagaDTO.builder()
         .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
+        .dataHoraFim(this.dataHoraFim)
+        .horasPermanencia(this.horasPermanencia)
         .placa(this.placa)
         .parquimetro(this.parquimetroId)
         .parquimetroValorHora(this.parquimetroValorHora)

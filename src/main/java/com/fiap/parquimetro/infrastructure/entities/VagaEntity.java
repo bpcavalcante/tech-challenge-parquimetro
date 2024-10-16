@@ -41,6 +41,8 @@ public class VagaEntity {
     return VagaDatabaseDTO.builder()
         .id(this.id)
         .dataHoraInicio(this.dataHoraInicio)
+        .dataHoraFim(this.dataHoraFim)
+        .horasPermanencia(this.tempoPermanencia)
         .placa(this.placa)
         .parquimetroId(this.parquimetro.getId())
         .parquimetroValorHora(this.parquimetro.getValorHora())
