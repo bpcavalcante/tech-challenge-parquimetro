@@ -58,23 +58,37 @@ Antes de iniciar, certifique-se de ter os seguintes requisitos atendidos:
 
 6. **Testando o Sistema:**
    Use os comandos curl abaixo para testar as funcionalidades do sistema:
-   - **Criar Pagamento**
-     ```bash
-     curl --request GET \
-     --url http://localhost:8080/moradores \
-     --header 'User-Agent: insomnia/9.3.3'
    - **Criar Parquimetro**
      ```bash
-     curl --request GET \
-     --url 'http://localhost:8080/moradores?nome=Pericles' \
-     --header 'User-Agent: insomnia/9.3.3'
+     curl --request POST \
+     --url http://localhost:8080/parquimetros \
+     --header 'Content-Type: application/json' \
+     --header 'User-Agent: insomnia/10.0.0' \
+     --data '{
+     "complemento_endereco": "Sala Presidencial",
+     "cep_endereco": "55667-890",
+     "valor_hora_parquimetro": 8.00,
+     "nome_parquimetro": "Parquímetro Centro Empresarial",
+     "numero": "200"
+      }'
    - **Iniciar Vaga**
      ```bash
-     curl --request GET \
-     --url http://localhost:8080/moradores/2 \
-     --header 'User-Agent: insomnia/9.3.3'
+      curl --request POST \
+        --url http://localhost:8080/vagas \
+        --header 'Content-Type: application/json' \
+        --header 'User-Agent: insomnia/10.0.0' \
+        --data '{
+        "placa": "TXT1233",
+        "parquimetro_id": 2
+     }'
    - **Encerrar Vaga**
      ```bash
-     curl --request GET \
-     --url 'http://localhost:8080/moradores?cpf=4' \
-     --header 'User-Agent: insomnia/9.3.3' 
+      curl --request PUT \
+        --url http://localhost:8080/vagas \
+        --header 'Content-Type: application/json' \
+        --header 'User-Agent: insomnia/10.0.0' \
+        --data '{
+      	"placa": "TXT1233",
+      	"parquimetro_id": 2,
+      	"metodo_pagamento": "credito"
+      }'
