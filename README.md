@@ -32,6 +32,7 @@ Antes de iniciar, certifique-se de ter os seguintes requisitos atendidos:
 - Abra sua IDE preferida (por exemplo, IntelliJ IDEA ou Eclipse).
 - Certifique-se de que o **Java 17** está configurado como JDK.
 - Importe o projeto como um projeto Maven existente.
+- Adicione no Active profiles 'dev' 
 
 4. **Construir o Projeto:**
 
@@ -56,7 +57,7 @@ Antes de iniciar, certifique-se de ter os seguintes requisitos atendidos:
   O servidor MySQL será iniciado na porta **3306**
   
 
-6. **Testando o Sistema:**
+7. **Testando o Sistema:**
    Use os comandos curl abaixo para testar as funcionalidades do sistema:
    - **Criar Parquimetro**
      ```bash
@@ -92,3 +93,5 @@ Antes de iniciar, certifique-se de ter os seguintes requisitos atendidos:
       	"parquimetro_id": 2,
       	"metodo_pagamento": "credito"
       }'
+8. **Verificando doc Swagger:**
+   Acesse o link http://localhost:8080/swagger-ui/index.html com o projeto rodando
